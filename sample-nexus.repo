@@ -1,0 +1,30 @@
+name=Nexus Repository
+baseurl=http://<nexus-hash>:8081/repository/yum-centos/$releasever/os/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+priority=1
+
+[nexusrepo-updates]
+name=Nexus Repository Update
+baseurl=http://<nexus-hash>:8081/repository/yum-centos/$releasever/updates/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+priority=2
+
+[nexusrepo-extras]
+name=Nexus Repository Extra
+baseurl=http://<nexus-hash>:8081/repository/yum-centos/$releasever/extras/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+priority=3
+
+[nexusrepo-plus]
+name=Nexus Repository Plus
+baseurl=http://<nexus-hash>:8081/repository/yum-centos/$releasever/centosplus/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+priority=4

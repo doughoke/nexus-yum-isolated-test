@@ -1,0 +1,23 @@
+version: "3"
+services:
+  centos-no-internet:
+    image: centos
+    entrypoint: /bin/sh
+    stdin_open: true
+    tty: true
+    networks:
+      - no-internet
+
+  nexus:
+    image: sonatype/nexus3:3.9.0
+    ports:
+      - "8081:8081"
+    networks:
+      - no-internet
+      - internet
+
+networks:
+  no-internet:
+    internal: true
+  internet:
+    internal: false
