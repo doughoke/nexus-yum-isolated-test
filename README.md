@@ -13,6 +13,7 @@ This was created based on the document offered by sonatype. https://help.sonatyp
 
 ## Run
 
+### Step 1 - clone
 ```
 git clone https://github.com/doughoke/nexus-yum-isolated-test.git
 ```
@@ -23,18 +24,27 @@ cd nexus-yum-isolated-test
 docker-compose up
 ```
 
+### Step 2 - configure nexus yum proxy
 The nexus repo should be running on http://localhost:8081
 
-login with:
+Login with:
 admin/admin123
 
-set up your yum repo to point http://mirror.centos.org/centos/ (or whatever repo mirror you want)
+Set up your yum repo to point http://mirror.centos.org/centos/ (or whatever repo mirror you want)
 
+### Step 3 - point isolated centos to nexus yum repo
 ssh into the centos container
 ```
 docker exec -it centos-no-internet /bin/bash
 ```
 
-inside the container cd to /etc/yum.repos.d
-back up existing .repo files
-create a new repo file pointing to nexus (note use the sha of the nexus container
+Once inside the container cd to /etc/yum.repos.d
+Back up existing .repo files
+Create a new repo file pointing to nexus (note use the sha of the nexus container
+
+### Step 4 - test it out
+```
+yum update
+yum install zip
+yum install docker ###fun to run docker in docker container
+```

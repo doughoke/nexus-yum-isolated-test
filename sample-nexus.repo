@@ -1,3 +1,4 @@
+[nexusrepo-base]
 name=Nexus Repository
 baseurl=http://<nexus-hash>:8081/repository/yum-centos/$releasever/os/$basearch/
 enabled=1
