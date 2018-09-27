@@ -9,7 +9,7 @@ services:
       - no-internet
 
   nexus:
-    image: sonatype/nexus3:3.9.0
+    image: sonatype/nexus3:3.13.0
     ports:
       - "8081:8081"
     networks:

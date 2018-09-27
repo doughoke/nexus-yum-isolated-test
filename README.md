@@ -30,6 +30,10 @@ The nexus repo should be running on http://localhost:8081
 Login with:
 admin/admin123
 
+Create Repository (select yum proxy)
+
+Name the repo yum-centos
+
 Set up your yum repo to point http://mirror.centos.org/centos/ (or whatever repo mirror you want)
 
 ### Step 3 - point isolated centos to nexus yum repo
@@ -39,8 +43,10 @@ docker exec -it centos-no-internet /bin/bash
 ```
 
 Once inside the container cd to /etc/yum.repos.d
-Back up existing .repo files
-Create a new repo file pointing to nexus (note use the sha of the nexus container
+Back up existing .repo files 'mv *repo /tmp'
+Create a new repo file pointing to nexus (note use the sha of the nexus container - (get that from 'docker ps -a | grep nexus')
+Use the sample-nexus.repo file in the projet and replace <nexus-hash> string with instance id from the previous command.
+Save the .repo file
 
 ### Step 4 - test it out
 ```
